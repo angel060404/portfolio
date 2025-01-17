@@ -1,5 +1,4 @@
-import React from "react";
-import { Container, Row, Col, Carousel } from "react-bootstrap";
+import { Container, Col, Carousel } from "react-bootstrap";
 import "./Experience.css";
 import SkillCarousel from "../SkillCarousel/SkillCarousel";
 import { motion } from "framer-motion";
@@ -25,14 +24,6 @@ const Experience = ({ language }) => {
   ];
 
   const projects = [
-    // {
-    //   title: isEnglish ? "Meep Game" : "Juego Meep",
-    //   description: isEnglish
-    //     ? "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
-    //     : "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
-    //   image: [""],
-    //   link: "#",
-    // },
     {
       title: isEnglish ? "MeetMetters" : "MeetMetters",
       description: isEnglish
@@ -118,9 +109,6 @@ const Experience = ({ language }) => {
             variants={fadeLeftVariant}
             id="skills"
           >
-            {/* <div className="profile-container">
-              <img src="./profile.jpg" className="profile-img" alt="profile" />
-            </div> */}
             <p>
               {isEnglish
                 ? "I am Ángel Sánchez Prieto, a passionate web developer with full-stack expertise, specializing in technologies like HTML, CSS, JavaScript, React, NodeJS, MongoDB, ExpressJs, PHP, and MySQL. I thrive on solving technical challenges in team settings and enjoy learning new techniques to enhance my projects.I have actively participated in workshops and extracurricular activities, which have expanded my technical skills and strengthened my professional network. My experience includes projects like Ironjobs and MeetMeters, where I developed web applications using APIs and custom databases. I am always looking to grow professionally and personally in the field of web development."
