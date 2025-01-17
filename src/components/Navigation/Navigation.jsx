@@ -1,8 +1,8 @@
-import { Container, Nav, Navbar } from "react-bootstrap";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import { Container, Nav, Navbar, Dropdown } from "react-bootstrap";
 import "./Navigation.css";
 
-const Navigation = () => {
+const Navigation = ({ language, setLanguage }) => {
   const [currentTime, setCurrentTime] = useState(new Date());
 
   useEffect(() => {
@@ -21,14 +21,33 @@ const Navigation = () => {
     });
   };
 
+  const translations = {
+    en: {
+      skills: "SKILLS",
+      projects: "PROJECTS",
+      cv: "CV",
+      contact: "CONTACT ME",
+      location: "Madrid, Spain",
+    },
+    es: {
+      skills: "HABILIDADES",
+      projects: "PROYECTOS",
+      cv: "CV",
+      contact: "CONTÁCTAME",
+      location: "Madrid, España",
+    },
+  };
+
   return (
     <Navbar expand="lg" className="customNavbar" fixed="top">
       <Container className="navbarContainer">
         <div className="navbarLeft">
           <span className="navbarBrand">
-            <img src="/angel-logo.png" alt="Ángel Sánchez Logo" />
+            <img src="./logos/A.png" alt="Ángel Sánchez Logo" />
           </span>
-          <span className="navbarLocation">Madrid, Spain</span>
+          <span className="navbarLocation">
+            {translations[language].location}
+          </span>
           <span className="navbarTime">— {formatTime(currentTime)}</span>
         </div>
 
@@ -37,10 +56,10 @@ const Navigation = () => {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="navbarCenter">
             <Nav.Link href="#skills" className="navbarLink">
-              SKILLS
+              {translations[language].skills}
             </Nav.Link>
             <Nav.Link href="#projects" className="navbarLink">
-              PROJECTS
+              {translations[language].projects}
             </Nav.Link>
           </Nav>
 
@@ -50,14 +69,56 @@ const Navigation = () => {
               download
               className="navbarLink"
             >
-              CV
+              {translations[language].cv}
             </Nav.Link>
             <Nav.Link
               href="mailto:angelsanchezprieto04@gmail.com"
               className="navbarLink"
             >
-              CONTACT ME
+              {translations[language].contact}
             </Nav.Link>
+
+            {/* Selector de idioma */}
+            <Dropdown>
+              <Dropdown.Toggle
+                variant="light"
+                className="languageDropdown"
+                id="language-selector"
+              >
+                {language === "en" ? (
+                  <img
+                    src="./flags/uk.png"
+                    alt="English"
+                    className="language-flag"
+                  />
+                ) : (
+                  <img
+                    src="/flags/spain.png"
+                    alt="Español"
+                    className="language-flag"
+                  />
+                )}
+              </Dropdown.Toggle>
+
+              <Dropdown.Menu className="flagBackground">
+                <Dropdown.Item onClick={() => setLanguage("en")}>
+                  <img
+                    src="./flags/uk.png"
+                    alt="English"
+                    className="language-flag"
+                  />{" "}
+                  English
+                </Dropdown.Item>
+                <Dropdown.Item onClick={() => setLanguage("es")}>
+                  <img
+                    src="./flags/spain.png"
+                    alt="Español"
+                    className="language-flag"
+                  />{" "}
+                  Español
+                </Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
           </Nav>
         </Navbar.Collapse>
       </Container>

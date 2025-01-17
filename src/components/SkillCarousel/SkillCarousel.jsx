@@ -14,11 +14,12 @@ const SkillCarousel = ({ skills }) => {
         if (scrollAmount >= carousel.scrollWidth / 2) {
           scrollAmount = 0;
         }
+        console.log(scrollAmount);
         carousel.scrollLeft = scrollAmount;
       }
     };
 
-    const interval = setInterval(moveCarousel, 20);
+    const interval = setInterval(moveCarousel, 10);
 
     return () => clearInterval(interval);
   }, []);

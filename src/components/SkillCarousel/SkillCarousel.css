@@ -5,11 +5,13 @@
   justify-content: center;
   margin-top: 20px;
   height: 200px;
+  position: relative;
+  left: 0;
 }
 
 .carousel-content {
   display: flex;
-  width: max-content;
+  width: 100%;
 }
 
 .skill-item {
@@ -26,8 +28,9 @@
   height: 100px;
   object-fit: contain;
   transition: transform 0.7s ease;
+  margin-bottom: 10px;
 }
 
 .skill-item:hover .skill-icon {
-  transform: scale(1.1);
+  transform: scale(1.3);
 }

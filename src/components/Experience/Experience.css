@@ -1,7 +1,7 @@
 .Experience {
   font-family: "Arial", sans-serif;
   color: #333;
-  background-color: #f4f4f9; /* Asegúrate de que este color esté en su lugar */
+  background-color: #f4f4f9;
 }
 
 .Presentation {
@@ -65,12 +65,21 @@
 }
 
 .whoiam p {
-  width: 50%;
+  width: 70%;
   text-align: justify;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
+  font-weight: 500;
   line-height: 1.8;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-
+.project-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.project-col {
+  margin: 5px;
+}
 .profile-container {
   width: 200px;
   height: 200px;
@@ -137,8 +146,8 @@
 }
 
 .project-card {
-  position: relative; /* Necesario para el posicionamiento absoluto del overlay */
-  overflow: hidden; /* Evita que el overlay se extienda fuera del contenedor */
+  position: relative;
+  overflow: hidden;
   border-radius: 10px;
   transition: transform 0.3s ease;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
@@ -154,7 +163,7 @@
 }
 
 .project-image {
-  height: 250px; /* Set desired height */
+  height: 250px;
   background-size: cover;
   background-position: center;
 }
@@ -169,14 +178,14 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.85); /* Semi-transparent background */
+  background-color: rgba(0, 0, 0, 0.85);
   color: white;
   text-align: center;
   opacity: 0;
 }
 
 .carousel-item {
-  height: 100%; /* Make sure carousel items fill the container */
+  height: 100%;
 }
 
 .project-card:hover .project-overlay {
