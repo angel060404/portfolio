@@ -1,6 +1,7 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import "./SkillCarousel.css";
 
+// eslint-disable-next-line react/prop-types
 const SkillCarousel = ({ skills }) => {
   const carouselRef = useRef(null);
 

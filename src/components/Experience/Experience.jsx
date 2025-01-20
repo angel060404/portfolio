@@ -86,10 +86,8 @@ const Experience = ({ language }) => {
               : "DESARROLLADOR WEB FULL STACK"}
           </h2>
         </motion.div>
-      </Container>
 
-      <div className="Aboutme">
-        <Container>
+        <div className="Aboutme">
           <motion.div
             className="aligncenter"
             initial="hidden"
@@ -127,9 +125,8 @@ const Experience = ({ language }) => {
             <h5>{isEnglish ? "SKILLS" : "HABILIDADES"}</h5>
             <SkillCarousel skills={skills} />
           </motion.div>
-        </Container>
-      </div>
-
+        </div>
+      </Container>
       <div className="projects" id="projects">
         <Container>
           <h5>{isEnglish ? "PROJECTS" : "PROYECTOS"}</h5>
@@ -142,7 +139,7 @@ const Experience = ({ language }) => {
           >
             {/* <Row> */}
             {projects.map((project, index) => (
-              <Col key={index} md={6} lg={4} className="project-col">
+              <Col key={index} md={6} lg={4} xs={12} className="project-col">
                 <div className="project-card">
                   <a
                     href={project.link}

@@ -16,7 +16,7 @@
 }
 
 .Presentation h1 {
-  font-size: 3rem;
+  font-size: 2.5rem;
   margin-bottom: 10px;
   letter-spacing: 2px;
   font-weight: bold;
@@ -60,16 +60,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 30px;
   margin-top: 30px;
 }
 
 .whoiam p {
   width: 70%;
   text-align: justify;
-  font-size: 1.4rem;
-  font-weight: 500;
-  line-height: 1.8;
+  font-size: 1.3rem;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .project-container {
