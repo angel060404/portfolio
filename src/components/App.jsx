@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./App.css";
 import Navigation from "./Navigation/Navigation";
 import Experience from "./Experience/Experience";

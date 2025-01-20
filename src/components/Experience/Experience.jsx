@@ -3,6 +3,7 @@ import "./Experience.css";
 import SkillCarousel from "../SkillCarousel/SkillCarousel";
 import { motion } from "framer-motion";
 
+// eslint-disable-next-line react/prop-types
 const Experience = ({ language }) => {
   const isEnglish = language === "en";
 

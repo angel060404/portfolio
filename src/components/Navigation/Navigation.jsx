@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Container, Nav, Navbar, Dropdown } from "react-bootstrap";
 import "./Navigation.css";
 
+// eslint-disable-next-line react/prop-types
 const Navigation = ({ language, setLanguage }) => {
   const [currentTime, setCurrentTime] = useState(new Date());
 
@@ -65,11 +66,15 @@ const Navigation = ({ language, setLanguage }) => {
 
           <Nav className="navbarRight">
             <Nav.Link
-              href="/CV/CV-Ángel-Sánchez-Prieto.pdf"
+              href={
+                language === "es"
+                  ? "/CV/CV-Ángel-Sánchez-Prieto.pdf"
+                  : "/CV/CV-Ángel-Sánchez-Prieto-en.pdf"
+              }
               download
               className="navbarLink"
             >
-              {translations[language].cv}
+              CV
             </Nav.Link>
             <Nav.Link
               href="mailto:angelsanchezprieto04@gmail.com"
