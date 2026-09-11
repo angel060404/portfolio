@@ -1,7 +1,6 @@
 import { useEffect, useRef } from "react";
 import "./SkillCarousel.css";
 
-// eslint-disable-next-line react/prop-types
 const SkillCarousel = ({ skills }) => {
   const carouselRef = useRef(null);
 
@@ -15,31 +14,31 @@ const SkillCarousel = ({ skills }) => {
         if (scrollAmount >= carousel.scrollWidth / 2) {
           scrollAmount = 0;
         }
-        console.log(scrollAmount);
         carousel.scrollLeft = scrollAmount;
       }
     };
 
-    const interval = setInterval(moveCarousel, 10);
-
+    const interval = setInterval(moveCarousel, 15); // Un poco más lento para que sea fácil hacer clic
     return () => clearInterval(interval);
   }, []);
 
   return (
     <div className="carousel-container" ref={carouselRef}>
       <div className="carousel-content">
-        {skills.map((e, index) => (
-          <div key={index} className="skill-item">
-            <img src={e[0]} className="skill-icon" alt={e[1]} />
-            <p>{e[1]}</p>
-          </div>
+        {skills.map((skill, index) => (
+          <a key={index} href={skill.url} target="_blank" rel="noopener noreferrer" className="skill-item">
+            <img src={skill.img} className="skill-icon" alt={skill.name} />
+            <p className="skill-name">{skill.name}</p>
+            <span className="skill-tooltip">{skill.desc}</span>
+          </a>
         ))}
-
-        {skills.map((e, index) => (
-          <div key={`duplicate-${index}`} className="skill-item">
-            <img src={e[0]} className="skill-icon" alt={e[1]} />
-            <p>{e[1]}</p>
-          </div>
+        {/* Duplicado para el efecto de scroll infinito */}
+        {skills.map((skill, index) => (
+          <a key={`duplicate-${index}`} href={skill.url} target="_blank" rel="noopener noreferrer" className="skill-item">
+            <img src={skill.img} className="skill-icon" alt={skill.name} />
+            <p className="skill-name">{skill.name}</p>
+            <span className="skill-tooltip">{skill.desc}</span>
+          </a>
         ))}
       </div>
     </div>

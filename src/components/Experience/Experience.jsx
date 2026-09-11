@@ -1,35 +1,76 @@
-import { Container, Col, Carousel } from "react-bootstrap";
+import { Container, Row, Col, Carousel } from "react-bootstrap";
 import "./Experience.css";
 import SkillCarousel from "../SkillCarousel/SkillCarousel";
 import { motion } from "framer-motion";
 
-// eslint-disable-next-line react/prop-types
 const Experience = ({ language }) => {
   const isEnglish = language === "en";
 
   const skills = [
-    ["./logos/js.png", "JavaScript"],
-    ["./logos/html.png", "HTML"],
-    ["./logos/css.svg", "CSS"],
-    ["./logos/react.png", "React"],
-    ["./logos/bootstrap.svg", "Bootstrap"],
-    ["./logos/nodejs.svg", "NodeJS"],
-    ["./logos/mongodb.svg", "MongoDB"],
-    ["./logos/postman.svg", "Postman"],
-    ["./logos/git.svg", "GitHub & Bash"],
-    ["./logos/express.svg", "Express"],
-    ["./logos/PHP-logo.svg.png", "PHP"],
-    ["./logos/Laravel.svg.png", "Laravel"],
-    ["./logos/mysql-ar21.svg", "MySQL"],
-    ["./logos/mysql-ar21.svg", "MySQL"],
+    { img: "./logos/js.png", name: "JavaScript", url: "https://developer.mozilla.org/es/docs/Web/JavaScript", desc: isEnglish ? "Dynamic scripting language" : "Lenguaje dinámico" },
+    { img: "./logos/html.png", name: "HTML", url: "https://developer.mozilla.org/es/docs/Web/HTML", desc: isEnglish ? "Markup language" : "Lenguaje de marcado web" },
+    { img: "./logos/css.svg", name: "CSS", url: "https://developer.mozilla.org/es/docs/Web/CSS", desc: isEnglish ? "Style sheet language" : "Lenguaje de estilos" },
+    { img: "./logos/react.png", name: "React", url: "https://react.dev/", desc: isEnglish ? "UI library" : "Librería para interfaces web" },
+    { img: "./logos/bootstrap.svg", name: "Bootstrap", url: "https://getbootstrap.com/", desc: isEnglish ? "CSS Framework" : "Framework de CSS" },
+    { img: "./logos/nodejs.svg", name: "NodeJS", url: "https://nodejs.org/", desc: isEnglish ? "JavaScript runtime" : "Entorno de ejecución" },
+    { img: "./logos/mongodb.svg", name: "MongoDB", url: "https://www.mongodb.com/", desc: isEnglish ? "NoSQL Database" : "Base de datos NoSQL" },
+    { img: "./logos/postman.svg", name: "Postman", url: "https://www.postman.com/", desc: isEnglish ? "API platform" : "Plataforma de APIs" },
+    { img: "./logos/git.svg", name: "GitHub", url: "https://github.com/", desc: isEnglish ? "Version control" : "Control de versiones" },
+    { img: "./logos/express.svg", name: "Express", url: "https://expressjs.com/", desc: isEnglish ? "Node.js framework" : "Framework Node.js" },
+    { img: "./logos/PHP-logo.svg.png", name: "PHP", url: "https://www.php.net/", desc: isEnglish ? "Server-side language" : "Backend" },
+    { img: "./logos/Laravel.svg.png", name: "Laravel", url: "https://laravel.com/", desc: isEnglish ? "PHP Framework" : "Framework de PHP" },
+    { img: "./logos/mysql-ar21.svg", name: "MySQL", url: "https://www.mysql.com/", desc: isEnglish ? "Relational database" : "Base de datos SQL" },
+  ];
+
+  const education = [
+    {
+      title: isEnglish ? "Higher VET in Web App Development (DAW)" : "Grado Superior en Desarrollo Web (DAW)",
+      school: "IES Palomeras Vallecas",
+      date: "2025 - Presente",
+      desc: isEnglish ? "Currently studying the second year." : "Actualmente cursando el segundo año."
+    },
+    {
+      title: isEnglish ? "Web Development Internship" : "Prácticas de Desarrollo Web",
+      school: "Grupo Colon-IECM",
+      date: "02/2025 - 05/2025",
+      desc: isEnglish ? "Professional internship applying full-stack web development skills in real-world projects." : "Prácticas profesionales aplicando conocimientos de desarrollo web full-stack en proyectos reales."
+    },
+    {
+      title: isEnglish ? "Certificate in Web Tech Development" : "Certificado de Profesionalidad Web",
+      school: "Grupo Colon-IECM",
+      date: "10/2024 - 01/2025",
+      desc: isEnglish ? "Practical training in server/client side web programming (MySQL, PHP, C#)." : "Formación práctica en programación web lado cliente y servidor (MySQL, PHP, C#)."
+    },
+    {
+      title: "Web Development Bootcamp",
+      school: "Ironhack Madrid",
+      date: "09/2023 - 12/2023",
+      desc: isEnglish ? "Intensive full-stack web development course." : "Curso intensivo en desarrollo web full-stack."
+    }
   ];
 
   const projects = [
     {
-      title: isEnglish ? "MeetMetters" : "MeetMetters",
+      title: "JavaFX Chess",
       description: isEnglish
-        ? "MeetMetters is a web platform that connects people worldwide to explore the Met Museum together. It also features a gallery section where users can browse and discover their favorite artworks and artists."
-        : "MeetMetters es una plataforma web que conecta a personas de todo el mundo para explorar juntos el Museo Met. También incluye una sección de galería donde los usuarios pueden descubrir sus obras y artistas favoritos.",
+        ? "Complete desktop chess application built with Java. Features custom UI menus, strict move validation, match clocks, and game state persistence."
+        : "Juego de ajedrez de escritorio desarrollado en Java. Incluye menús personalizados, validación estricta de movimientos, relojes de partida y persistencia.",
+      image: [
+        "/projects/ajedrez/ajedrez1.png",
+        "/projects/ajedrez/ajedrez2.png",
+        "/projects/ajedrez/ajedrez3.png",
+        "/projects/ajedrez/ajedrez4.png",
+        "/projects/ajedrez/ajedrez5.png",
+        "/projects/ajedrez/ajedrez6.png",
+      ],
+      link: "https://github.com/angel060404/Ajedrez_java",
+      containImage: true,
+    },
+    {
+      title: "MeetMetters",
+      description: isEnglish
+        ? "Platform that connects people worldwide to explore the Met Museum. Features a gallery to discover artworks."
+        : "Plataforma que conecta personas para explorar el Museo Met. Incluye galería para descubrir obras.",
       image: [
         "/projects/meetmetters/met1.png",
         "/projects/meetmetters/met2.png",
@@ -40,8 +81,8 @@ const Experience = ({ language }) => {
     {
       title: "IRONJOB$",
       description: isEnglish
-        ? "IronJobs is a job portal designed to connect companies looking for talent with people looking for new job opportunities. It offers an intuitive interface and efficient functionality to facilitate the recruitment and job search process."
-        : "IronJobs es un portal de empleo diseñado para conectar empresas que buscan talento con personas que buscan nuevas oportunidades laborales. Ofrece una interfaz intuitiva y funcionalidad eficiente para facilitar el proceso de reclutamiento y búsqueda de empleo.",
+        ? "Job portal designed to connect companies with talent. Intuitive interface for recruitment."
+        : "Portal de empleo diseñado para conectar empresas con talento. Interfaz intuitiva de reclutamiento.",
       image: [
         "/projects/ironjobs/ironjobs1.png",
         "/projects/ironjobs/ironjobs2.png",
@@ -51,124 +92,184 @@ const Experience = ({ language }) => {
   ];
 
   const fadeInVariant = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-  };
-
-  const fadeLeftVariant = {
-    hidden: { opacity: 0, x: -100 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.8 } },
-  };
-
-  const fadeBottomVariant = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
   };
 
   return (
     <div className="Experience">
       <Container>
         <motion.div
-          className="Presentation"
+          className="hero-section"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, amount: 0.3 }}
+          viewport={{ once: true }}
           variants={fadeInVariant}
         >
-          <h1>
-            {isEnglish
-              ? "HI!, I'M ÁNGEL SÁNCHEZ."
-              : "¡HOLA!, SOY ÁNGEL SÁNCHEZ."}
-          </h1>
-          <h2>
-            {isEnglish
-              ? "FULL STACK WEB DEVELOPER"
-              : "DESARROLLADOR WEB FULL STACK"}
-          </h2>
-        </motion.div>
+          <div className="hero-content">
+            <p className="hero-greeting">{isEnglish ? "HELLO, I AM" : "HOLA, SOY"}</p>
+            <h1 className="hero-title">
+              ÁNGEL <br /> <span className="gradient-text">SÁNCHEZ</span>
+            </h1>
+            <h2 className="hero-subtitle mb-4">
+              {isEnglish ? "FULL STACK WEB DEVELOPER" : "DESARROLLADOR WEB FULL STACK"}
+            </h2>
 
-        <div className="Aboutme">
+            <div className="hero-buttons d-flex flex-wrap gap-3 mt-4">
+              <a href="mailto:angelsanchezprieto04@gmail.com" className="btn-primary-glow">
+                {isEnglish ? "CONTACT ME" : "CONTÁCTAME"}
+              </a>
+              <a href={isEnglish ? "/CV/CV-Ángel-Sánchez-Prieto-en.pdf" : "/CV/CV-Ángel-Sánchez-Prieto.pdf"} download className="btn-glass">
+                {isEnglish ? "DOWNLOAD CV" : "DESCARGAR CV"}
+              </a>
+            </div>
+          </div>
+        </motion.div>
+      </Container>
+
+      <Container className="bento-section" id="skills">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.2 }}
+          variants={fadeInVariant}
+        >
+          <h3 className="section-title">{isEnglish ? "ABOUT ME" : "SOBRE MÍ"}</h3>
+
+          <Row className="g-4">
+            <Col lg={8}>
+              <div className="glass-panel h-100">
+                <h4 className="panel-title">{isEnglish ? "WHO AM I?" : "¿QUIÉN SOY?"}</h4>
+                <p className="panel-text">
+                  {isEnglish
+                    ? "Passionate web developer with full-stack expertise, specializing in modern technologies. I thrive on solving technical challenges in team settings and constantly learning new tools. My experience ranges from crafting single-page applications to building robust custom APIs."
+                    : "Apasionado desarrollador web full-stack, especializado en tecnologías modernas. Me motiva resolver desafíos técnicos en equipo y aprender nuevas herramientas constantemente. Mi experiencia abarca desde crear aplicaciones web completas hasta diseñar APIs propias y robustas."}
+                </p>
+              </div>
+            </Col>
+
+            <Col lg={4} className="d-flex flex-column gap-4">
+              <div className="glass-panel flex-grow-1 d-flex flex-column justify-content-center align-items-center text-center">
+                <span className="emoji-icon">📍</span>
+                <h4 className="panel-title m-0">Madrid, Spain</h4>
+              </div>
+              <div className="glass-panel flex-grow-1 d-flex flex-column justify-content-center align-items-center text-center">
+                <span className="emoji-icon">💻</span>
+                <h4 className="panel-title m-0">{isEnglish ? "DAW Student" : "Estudiante DAW"}</h4>
+              </div>
+            </Col>
+          </Row>
+
+          <Row className="mt-4">
+            <Col>
+              <div className="glass-panel p-0 overflow-hidden">
+                <h4 className="panel-title p-4 pb-0 text-center">{isEnglish ? "TECH STACK" : "TECNOLOGÍAS"}</h4>
+                <SkillCarousel skills={skills} />
+              </div>
+            </Col>
+          </Row>
+        </motion.div>
+      </Container>
+
+      <div className="education-section">
+        <Container>
           <motion.div
-            className="aligncenter"
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: false, amount: 0.5 }}
+            viewport={{ once: false, amount: 0.3 }}
             variants={fadeInVariant}
           >
-            <h3>{isEnglish ? "ABOUT ME" : "SOBRE MÍ"}</h3>
-            <div className="barrita" />
-            <h4>{isEnglish ? "WHO AM I?" : "¿QUIÉN SOY?"}</h4>
-          </motion.div>
+            <h3 className="section-title text-center">{isEnglish ? "EDUCATION" : "FORMACIÓN"}</h3>
 
-          <motion.div
-            className="whoiam"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: false, amount: 0.5 }}
-            variants={fadeLeftVariant}
-            id="skills"
-          >
-            <p>
-              {isEnglish
-                ? "I am Ángel Sánchez Prieto, a passionate web developer with full-stack expertise, specializing in technologies like HTML, CSS, JavaScript, React, NodeJS, MongoDB, ExpressJs, PHP, and MySQL. I thrive on solving technical challenges in team settings and enjoy learning new techniques to enhance my projects.I have actively participated in workshops and extracurricular activities, which have expanded my technical skills and strengthened my professional network. My experience includes projects like Ironjobs and MeetMeters, where I developed web applications using APIs and custom databases. I am always looking to grow professionally and personally in the field of web development."
-                : "Soy Ángel Sánchez Prieto, un apasionado desarrollador web con experiencia full-stack, especializado en tecnologías como HTML, CSS, JavaScript, React, NodeJS, MongoDB, ExpressJs, PHP y MySQL. Me motiva resolver desafíos técnicos colaborando en equipo, y disfruto aprendiendo nuevas técnicas para mejorar mis proyectos. He participado activamente en talleres y actividades extracurriculares que me han permitido ampliar mis habilidades técnicas y fortalecer mi red profesional. Mi experiencia incluye proyectos como Ironjobs y MeetMeters, donde desarrollé aplicaciones web utilizando APIs y bases de datos propias. Siempre busco crecer profesional y personalmente en el campo del desarrollo web"}
-            </p>
-          </motion.div>
-
-          <motion.div
-            className="myskills"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: false, amount: 0.5 }}
-            variants={fadeBottomVariant}
-          >
-            <h5>{isEnglish ? "SKILLS" : "HABILIDADES"}</h5>
-            <SkillCarousel skills={skills} />
-          </motion.div>
-        </div>
-      </Container>
-      <div className="projects" id="projects">
-        <Container>
-          <h5>{isEnglish ? "PROJECTS" : "PROYECTOS"}</h5>
-          <motion.div
-            className="project-container"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: false, amount: 0.5 }}
-            variants={fadeBottomVariant}
-          >
-            {/* <Row> */}
-            {projects.map((project, index) => (
-              <Col key={index} md={6} lg={4} xs={12} className="project-col">
-                <div className="project-card">
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Carousel>
-                      {project.image.map((imgSrc, imgIndex) => (
-                        <Carousel.Item key={imgIndex}>
-                          <div
-                            className="project-image"
-                            style={{ backgroundImage: `url(${imgSrc})` }}
-                          >
-                            <div className="project-overlay">
-                              <h6>{project.title}</h6>
-                              <p>{project.description}</p>
-                            </div>
-                          </div>
-                        </Carousel.Item>
-                      ))}
-                    </Carousel>
-                  </a>
+            <div className="timeline">
+              {education.map((item, index) => (
+                <div key={index} className={`timeline-item ${index % 2 === 0 ? 'left' : 'right'}`}>
+                  <div className="glass-panel timeline-content">
+                    <span className="timeline-date">{item.date}</span>
+                    <h4 className="timeline-title">{item.title}</h4>
+                    <h5 className="timeline-school">{item.school}</h5>
+                    <p className="timeline-desc">{item.desc}</p>
+                  </div>
                 </div>
-              </Col>
-            ))}
-            {/* </Row> */}
+              ))}
+            </div>
           </motion.div>
         </Container>
       </div>
+
+      <div className="projects-section" id="projects">
+        <Container>
+          <h3 className="section-title text-center">{isEnglish ? "SELECTED WORK" : "PROYECTOS DESTACADOS"}</h3>
+          <motion.div
+            className="row justify-content-center g-4"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false, amount: 0.2 }}
+            variants={fadeInVariant}
+          >
+            {projects.map((project, index) => (
+              <Col key={index} md={6} lg={6} xs={12}>
+                <div className="glass-panel project-card p-0">
+                  <Carousel indicators={true} controls={true} interval={4000}>
+                    {project.image.map((imgSrc, imgIndex) => (
+                      <Carousel.Item key={imgIndex}>
+                        <div
+                          className="project-image"
+                          style={{
+                            backgroundImage: `url(${imgSrc})`,
+                            backgroundSize: project.containImage ? 'contain' : 'cover',
+                            backgroundRepeat: 'no-repeat',
+                            backgroundPosition: 'center'
+                          }}
+                        >
+                          <div className="project-overlay">
+                            <h4 className="project-title gradient-text">{project.title}</h4>
+                            <p className="project-desc">{project.description}</p>
+
+                            <a
+                              href={project.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="btn-glass-small mt-3"
+                            >
+                              {isEnglish ? "VIEW PROJECT" : "VER PROYECTO"}
+                            </a>
+                          </div>
+                        </div>
+                      </Carousel.Item>
+                    ))}
+                  </Carousel>
+                </div>
+              </Col>
+            ))}
+          </motion.div>
+        </Container>
+      </div>
+
+      <footer className="footer-section" id="contact">
+        <Container>
+          <motion.div
+            className="glass-panel text-center p-5"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false, amount: 0.2 }}
+            variants={fadeInVariant}
+          >
+            <h3 className="section-title mb-3">
+              {isEnglish ? "LET'S WORK TOGETHER" : "TRABAJEMOS JUNTOS"}
+            </h3>
+            <p className="panel-text mb-4 mx-auto" style={{ maxWidth: "600px" }}>
+              {isEnglish
+                ? "Currently open to new opportunities. If you have a project in mind or just want to say hi, my inbox is always open!"
+                : "Actualmente abierto a nuevas oportunidades. Si tienes un proyecto en mente o simplemente quieres saludar, ¡mi bandeja de entrada está abierta!"}
+            </p>
+            <div className="social-links d-flex justify-content-center gap-4 mt-4">
+              <a href="https://github.com/angel060404" target="_blank" rel="noopener noreferrer" className="social-icon">GITHUB</a>
+              <a href="https://www.linkedin.com/in/ángel-sánchez-prieto-33012029a/" target="_blank" rel="noopener noreferrer" className="social-icon">LINKEDIN</a>
+            </div>
+          </motion.div>
+        </Container>
+      </footer>
     </div>
   );
 };
